@@ -1,0 +1,201 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: hsl(0, 0%, 35%);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+
+/*=============== CARD ===============*/
+/* Container to center the content */
+.container {
+    background-image: url('/images/bgGRADIENT.png');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem;
+}
+
+/* Wrapper for flex layout of card and text */
+.card-wrapper {
+    display: flex;
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Card section on the left */
+.card__left {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    max-width: 400px;
+}
+
+.card__img {
+    width: 100%;
+    border-radius: 1.5rem;
+}
+
+/* Hover effect text data */
+.card__data {
+    width: 280px;
+    background-color: hsl(0, 0%, 100%);
+    padding: 1.5rem 2rem;
+    box-shadow: 0 8px 24px hsla(0, 0%, 0%, .15);
+    border-radius: 1rem;
+    position: absolute;
+    bottom: -9rem;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    opacity: 0;
+    transition: opacity 1s 1s;
+}
+
+.card__description {
+    display: block;
+    font-size: .875rem;
+    margin-bottom: .25rem;
+}
+
+.card__title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: hsl(0, 0%, 15%);
+    margin-bottom: .75rem;
+}
+
+.card__button {
+    text-decoration: none;
+    font-size: .875rem;
+    font-weight: 500;
+    color: hsl(82, 60%, 28%);
+}
+
+.card__button:hover {
+    text-decoration: underline;
+}
+
+/* Hover effect for showing text data */
+.card__left:hover .card__data {
+    animation: show-data 1s forwards;
+    opacity: 1;
+    transition: opacity .3s;
+}
+
+.card__left:hover {
+    animation: remove-overflow 2s forwards;
+}
+
+.card__left:not(:hover) {
+    animation: show-overflow 2s forwards;
+}
+
+.card__left:not(:hover) .card__data {
+    animation: remove-data 1s forwards;
+}
+
+/* Card animation keyframes */
+@keyframes show-data {
+    50% {
+        transform: translateY(-10rem);
+    }
+    100% {
+        transform: translateY(-7rem);
+    }
+}
+
+@keyframes remove-overflow {
+    to {
+        overflow: initial;
+    }
+}
+
+@keyframes remove-data {
+    0% {
+        transform: translateY(-7rem);
+    }
+    50% {
+        transform: translateY(-10rem);
+    }
+    100% {
+        transform: translateY(.5rem);
+    }
+}
+
+@keyframes show-overflow {
+    0% {
+        overflow: initial;
+        pointer-events: none;
+    }
+    50% {
+        overflow: hidden;
+    }
+}
+
+/* Styling the right part of the card */
+.card__right {
+    flex: 2;
+    padding-left: 1rem;
+    color: hsl(0, 0%, 35%);
+    background-color: hsl(0, 0%, 100%);
+    padding: 1.5rem;
+    box-shadow: 0 8px 24px hsla(0, 0%, 0%, .15);
+    border-radius: 1rem;
+}
+
+/* Headings styling */
+.card__right h1 {
+    font-size: 1.8rem;
+    color: hsl(0, 0%, 15%);
+}
+
+.card__right li {
+    font-size: 1.4rem;
+    margin-top: .75rem;
+    color: hsl(0, 0%, 15%);
+}
+
+.card__right p {
+    font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .card-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card__right {
+        text-align: center;
+        padding-left: 0;
+    }
+}
+
+.header {
+    text-align: center;
+    margin-top: 2rem;
+}
+  
+  .header__title {
+    font-size: 2rem;
+    color: #333;
+    margin: 0;
+  }
